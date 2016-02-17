@@ -1,21 +1,33 @@
 
 /*  PROFILE VIEW */
 #profile-appointments{
+  color: #222B31;
 margin-top: -14px;
   width: 50%;
   height: 710px;
   background: #F9F9F9 url("http://questsell.com/images/checklist-icon-350.png") center no-repeat;
   background-size: 300px 300px;
 }
-
-#profile-tasks{
-  margin-top: -14px;
-    width: 50%;
-    height: 710px;
-    border-left: 1px solid #000000;
-    background: #F5F5F5 url('http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Files-2-icon.png') center no-repeat;
-    background-size: 300px 300px;
+#profile-appointments:hover{
+  background: #DDDBDC url("http://questsell.com/images/checklist-icon-350.png") center no-repeat;
+  background-size: 300px 300px;
 }
+#profile-tasks{
+  color: #222B31;
+  margin-top: -14px;
+  width: 50%;
+  height: 710px;
+  border-left: 1px solid #000000;
+  background: #F5F5F5 url('http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Files-2-icon.png') center no-repeat;
+  background-size: 300px 300px;
+}
+
+#profile-tasks:hover{
+  background: #DDDBDC url('http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Files-2-icon.png') center no-repeat;;
+  background-size: 300px 300px;
+}
+
+
 
 .badge {
   text-align: center;
@@ -24,9 +36,11 @@ margin-top: -14px;
   height: 20px;
   top: 100px;
   right: 250px;
+
 }
 .badge:hover{
   background-color: #3CB371;
-  color:white;
+  color:#FFFFFF;
+    border: 0.01em solid #FFFFFF;
 }
 /* to do lists render */

@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app="appointmentApp">
   <head>
-    <title>MEAN Assistant</title>
+    <title>Gnomon</title>
       <!--*************************** Styles ******************************* -->
       <!-- CSS custom -->
       <link rel="stylesheet" href="/css/profile.css" media="screen" title="no title" charset="utf-8">
@@ -33,7 +33,7 @@
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -42,7 +42,7 @@
       <a class="navbar-brand" href="/profile">Gnomon</a>
     </div>
 
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
     <ul class="nav navbar-nav">
       <li><a href="/appointments"><span class="fa fa-calendar"></span> Appointments</a><span class="hover"></span></li>
       <li><a href="/contacts"><span class="fa fa-book"></span> Contacts</a><span class="hover"></span></li>

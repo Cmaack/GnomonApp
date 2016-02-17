@@ -91,7 +91,7 @@ body {
 /*Media query breakpoints for nav*/
 @media (max-width: 767px) {
   .nav {
-    padding-bottom: 20px;
+    margin-bottom: 20px;
   }
   .nav a {
     padding: 12px !important;
@@ -99,7 +99,7 @@ body {
 }
 @media (max-width: 480px) {
   .nav {
-    padding-bottom: 20px;
+    margin-bottom: 20px;
   }
 }
 /*==========================End Navbar stuff===========================*/
