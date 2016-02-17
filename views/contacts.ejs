@@ -44,10 +44,10 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   <ul class="nav navbar-nav">
 
-  <li><a href="/contacts"><span class="fa fa-book"></span> Contacts</a><span class="hover"></span></li>
+  <li><a href="/appointments"><span class="fa fa-calendar"></span> Appointments</a><span class="hover"></span></li>
   <li><a href="/tasks"><span class="fa fa-check-square"></span> Tasks</a><span class="hover"></span></li>
   <li><a href="/profile"><span class="fa fa-user"></span> Profile</a><span class="hover"></span></li>
-  <li id="logout"><a href="/logout"><span class="fa fa-check-user"></span> Logout</a><span class="hover"></span></li>
+  <li id="logout"><a href="/logout"><span class="fa fa-sign-out"></span> Logout</a><span class="hover"></span></li>
   <li><input class="searcher" type="text" name="contactSearch" value="" ng-model="searchBox" placeholder="search"></li>
   </ul>
   </div>
@@ -169,7 +169,7 @@
 
           <div class="row">
 
-            <ul>
+            <ul class="list-unstyled">
               <li>
                 <h3><strong>{{ contact.firstName }} {{ contact.lastName}}</strong></h3>
                 <h5> {{ contact.phone }}  | {{ contact.email }}</h5>

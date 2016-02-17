@@ -4,6 +4,7 @@
     <title>MEAN Assistant</title>
       <!--*************************** Styles ******************************* -->
       <!-- CSS custom -->
+      <link rel="stylesheet" href="/CSS/appointments.css" media="screen" title="no title" charset="utf-8">
       <link rel="stylesheet" href="/CSS/styles.css" media="screen" title="no title" charset="utf-8">
       <!-- CSS CDNs -->
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
@@ -41,10 +42,10 @@
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li><a href="/profile"><span class="fa fa-user"></span> Profile</a><span class="hover"></span></li>
       <li><a href="/contacts"><span class="fa fa-book"></span> Contacts</a><span class="hover"></span></li>
       <li><a href="/tasks"><span class="fa fa-check-square"></span> Tasks</a><span class="hover"></span></li>
-      <li id="logout"><a href="/logout"><span class="fa fa-check-user"></span> Logout</a><span class="hover"></span></li>
+      <li><a href="/profile"><span class="fa fa-user"></span> Profile</a><span class="hover"></span></li>
+      <li id="logout"><a href="/logout"><span class="fa fa-sign-out"></span> Logout</a><span class="hover"></span></li>
       <li><input class="searcher" type="text" name="taskSearch" value="" ng-model="searchBox" placeholder="search"></li>
 
 
@@ -84,8 +85,8 @@
          *************************************  FORM   ***************************************
          =====================================================================================
          -->
-          <div class="well">
-            <form ng-submit="createAppointment()" class="form-horizontal">
+          <div class="">
+            <form ng-submit="createAppointment()" class="form-horizontal" id="appointment-form">
               <!-- title  -->
               <div class="form-group">
                 <label for="appointment-title" class="col-sm-2 control-label">Appointment Title/Type</label>
@@ -155,14 +156,14 @@
 
             <div class="row">
               <div class="col-md-12">
-                <h2>Here's what your day is lookin' like...</h2>
+                <h2>Appointments</h2>
               </div>
             </div>
           <div ng-repeat="appointment in appointments" class="well">
 
             <div class="row">
 
-              <ul>
+              <ul class="list-unstyled">
                 <li>
                   <h3><strong>{{ appointment.type_name }}</strong></h3>
                   <h5> {{ appointment.datetime | date:'medium' }} </h5>
