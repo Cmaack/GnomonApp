@@ -53,6 +53,14 @@ module.exports = function(app, passport) {
         });
     });
     // =====================================
+    // Appointments SECTION ================
+    // =====================================
+    app.get('/appointments', isLoggedIn, function(req, res) {
+        res.render('appointments.ejs', {
+            user : req.user // get the user out of session and pass to template
+        });
+    });
+    // =====================================
     // Contacts SECTION =====================
     // =====================================
     app.get('/contacts', isLoggedIn, function(req, res) {

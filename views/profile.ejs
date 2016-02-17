@@ -4,10 +4,13 @@
     <title>MEAN Assistant</title>
       <!--*************************** Styles ******************************* -->
       <!-- CSS custom -->
+      <link rel="stylesheet" href="/CSS/profile.css" media="screen" title="no title" charset="utf-8">
       <link rel="stylesheet" href="/CSS/styles.css" media="screen" title="no title" charset="utf-8">
+
       <!-- CSS CDNs -->
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
       <link href="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.css" type="text/css" rel="stylesheet">
 
       <!--**************************** Scripts ***************************** -->
@@ -41,11 +44,11 @@
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-
+      <li><a href="/appointments"><span class="fa fa-calendar"></span> Appointments</a><span class="hover"></span></li>
       <li><a href="/contacts"><span class="fa fa-book"></span> Contacts</a><span class="hover"></span></li>
       <li><a href="/tasks"><span class="fa fa-check-square"></span> Tasks</a><span class="hover"></span></li>
       <li><a href="/profile"><span class="fa fa-user"></span> Profile</a><span class="hover"></span></li>
-      <li id="logout"><a href="/logout"><span class="fa fa-check-user"></span> Logout</a><span class="hover"></span></li>
+      <li id="logout"><a href="/logout"><span class="fa fa-sign-out"></span> Logout</a><span class="hover"></span></li>
 
     </ul>
   </div>
@@ -61,134 +64,24 @@
       **************************  PROFILE VIEW  ********************************
       ==========================================================================
       -->
+      <!-- <div class="container"> -->
+        <div class="row">
+          <a href="/appointments">
+          <div ng-controller="AppointmentsController" class="col-lg-6"id="profile-appointments">
+            <h2>Appointments</h2>
+            <span class="badge">{{appointments.length}}</span>
 
-      <!-- <h1><span class="fa fa-user"></span> Welcome  <%= user.local.email %><br> </h1>
-
-      <a href="/logout" class="btn btn-warning btn-sm">Logout</a> -->
-      <!-- <a href="/contacts" class="btn btn-default"><span class="fa fa-book"></span> Contacts</a>
-      <a href="/tasks" class="btn btn-default"><span class="fa fa-check-square"></span> Tasks</a> -->
-
-
-      <section ng-controller="AppointmentsController" >
-        <!-- header -->
-
-        <div>
-
-
-        <div ng-controller="AccordionDemoCtrl" class="container">
-
-        <uib-accordion close-others="oneAtATime">
-            <uib-accordion-group is-open="status.open">
-              <uib-accordion-heading>
-                <i class="fa fa-plus"></i> New Appointment <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-              </uib-accordion-heading>
-
-
-        <!--
-         =====================================================================================
-         *************************************  FORM   ***************************************
-         =====================================================================================
-         -->
-          <div class="well">
-            <form ng-submit="createAppointment()" class="form-horizontal">
-              <!-- title  -->
-              <div class="form-group">
-                <label for="appointment-title" class="col-sm-2 control-label">Appointment Title/Type</label>
-                <div class="col-sm-10">
-                  <input ng-model="newAppointment.type_name" type="text" class="form-control" id="appointment-title" placeholder="New Appointment">
-                </div>
-              </div>
-              <!-- location -->
-              <div class="form-group">
-                <label for="appointment-location" class="col-sm-2 control-label">Location</label>
-                <div class="col-sm-10">
-                  <input ng-model="newAppointment.location" type="text" class="form-control" id="appointment-location" placeholder="Address, City, State ">
-                </div>
-              </div>
-              <!-- description -->
-              <div class="form-group ">
-                <label class= "col-sm-2 control-label"  for="description">Description</label>
-                <div class="col-sm-10">
-                  <textarea ng-model="newAppointment.description" class="form-control" rows="3" id="appointment-description"></textarea>
-                </div>
-              </div>
-              <!-- date and time-->
-              <div class="row">
-                <div class="form-group">
-              <div ng-controller="DateTimePickerDemoCtrl">  <!-- DATETIMEPICKER CONTROLLER -->
-                    <label class="col-sm-2 control-label"for="datetimepicker" id="dtp-label">Date</label>
-
-                  <div id="datetimepicker" class="col-sm-4 well">
-                    <datetimepicker
-                      min-date="minDate"
-                      hour-step="hourStep"
-                      minute-step="minuteStep" ng-model="newAppointment.datetime" show-meridian="showMeridian"
-                      date-format="dd-MMM-yyyy" date-options="dateOptions"
-                      date-disabled="disabled(date, mode)"
-                      datepicker-append-to-body="false"
-                      readonly-date="false"
-                      hidden-time="false"
-                      hidden-date="false"
-                      name="datetimepicker"
-                      show-spinners="true"
-                      readonly-time="false"
-                      date-opened="dateOpened"
-                      placeholder='Choose Date'>
-                      <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
-                    </datetimepicker>
-                  </div>
-
-                </div>
-                <div class="col-sm-5">
-                  <button type="submit" class="btn btn-lg btn-success" id="submit-btn">Submit</button>
-                </div>
-              </div>
-                </div>
-                <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
-              </form>
-            </div>
-          </uib-accordion-group>
-          </uib-accordion>
           </div>
-        <!--
-         =====================================================================================
-         ********************************** END FORM   ***************************************
-         =====================================================================================
-         -->
-
-          <div class="container">
-
-            <div class="row">
-              <div class="col-md-12">
-                <h2>Here's what your day is lookin' like...</h2>
-              </div>
-            </div>
-          <div ng-repeat="appointment in appointments" class="well">
-
-            <div class="row">
-
-              <ul>
-                <li>
-                  <h3><strong>{{ appointment.type_name }}</strong></h3>
-                  <h5> {{ appointment.datetime | date:'medium' }} </h5>
-                  <p>
-                    {{ appointment.location }}
-                  </p>
-                  <p>
-                    {{ appointment.description }}
-                  </p>
-                  <button ng-click="deleteAppointment($index)" class="btn btn-danger" id="btn-delete"><i class="fa fa-trash-o"></i></button>
-
-                </li>
-              </ul>
-
-            </div>
+          </a>
+          <a href="/tasks">
+          <div ng-controller="TasksController" class="col-lg-6"id="profile-tasks">
+            <h2>Tasks</h2>
+            <span class="badge">{{tasks.length}}</span>
           </div>
+        </a>
+        </div>
+      </div>
 
-      </div><!-- end appointments controller -->
 
-
-    </div>
-</section>
   </body>
 </html>

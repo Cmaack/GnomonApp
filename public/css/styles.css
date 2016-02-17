@@ -1,14 +1,20 @@
-/*body {
-  background: #192226 !important;
-}*/
-
+body {
+  background-color: #444;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
+}
+/*==========================Navbar stuff===========================*/
 .navbar-inverse {
   background: #222B31 !important;
-  border-bottom: 4px solid #EE445F !important;
+  border-bottom: 4px solid #de615e !important;
 }
 
 .navbar-brand {
-  font: 16px Lato !important;
+  font-size: 16px;
   text-transform: uppercase;
   color: #FFF !important;
   letter-spacing: 2px;
@@ -20,8 +26,9 @@
   margin-bottom: 0px;
 }
 .nav a {
-
-  font: 500 13px Lato;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: 300;;
   letter-spacing: 2px;
   padding: 16px !important;
   color: #a3bfc6 !important;
@@ -72,15 +79,14 @@
   z-index: 0;
   opacity: 0;
 }
+.searcher{
+  margin-top: 15px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 7px;
+  text-align: center;
+  background-color: whitesmoke;
 
-#accord-head{
-  background-color: grey;
-}
-#task-title{
-  margin-right: 15px;
-}
-#task-notes{
-  margin-right: 15px;
 }
 /*Media query breakpoints for nav*/
 @media (max-width: 767px) {
@@ -96,4 +102,13 @@
     padding-bottom: 20px;
   }
 }
-/* to do lists render */
+/*==========================End Navbar stuff===========================*/
+#accord-head{
+  background-color: grey;
+}
+#task-title{
+  margin-right: 15px;
+}
+#task-notes{
+  margin-right: 15px;
+}

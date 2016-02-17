@@ -3,9 +3,14 @@
 <html>
 <head>
     <title>THings</title>
+
     <link rel="stylesheet" href="/CSS/styles.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/CSS/form-style.css" media="screen" title="no title" charset="utf-8">
+
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-animate.js" charset="utf-8"></script>
@@ -14,18 +19,54 @@
 </head>
 <body>
 
+  <div id="index-container" class="container">
 
-<div class="container">
+      <!-- LOGIN FORM -->
+      <div class="top-content">
+              <div class="inner-bg">
+                  <div class="container">
 
-    <div class="jumbotron text-center">
-        <h1><span class="fa fa-calendar"></span> Appointment Assistant</h1>
 
-        <p>Login or Register with:</p>
+                      <div class="row">
+                          <div class="col-md-6 col col-md-offset-3 form-box">
+                          	<div class="form-top">
+                          		<div class="form-top-left">
+                          			<h1 id="landing-title">Gnomon </h1>
+                                <p>Need an account? <a href="/signup"> Signup</a></p>
+                          		</div>
+                          		<div class="form-top-right">
+                          <span><i class="fa fa-calendar"></i></span>
+                          		</div>
+                              </div>
+                              <div class="form-bottom">
+  			                    <form role="form" action="/login" method="post" class="login-form">
+                              <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1">
+                                  <button action="/login" class="btn">Please Log in</button>
+                                </div>
 
-        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Login</a>
-        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Signup</a>
-    </div>
+                            </div>
+  			                  </form>
 
-</div>
+  		                    </div>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
 </body>
 </html>

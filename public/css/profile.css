@@ -1,0 +1,26 @@
+
+/*  PROFILE VIEW */
+#profile-appointments{
+margin-top: -14px;
+  width: 50%;
+  height: 710px;
+  background: #DCDCDC url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/calendar-icon.png') center no-repeat;
+
+}
+#profile-tasks{
+  margin-top: -14px;
+    width: 50%;
+    height: 710px;
+
+    border-left: 1px solid #000000;
+      background: #F5F5F5 url("http://questsell.com/images/checklist-icon-350.png") center no-repeat;
+  /*background:#F5F5F5 url('http://www.themescripts.net/wp-content/uploads/2015/11/icon_checklist2-01-1024x1024.png') center no-repeat;*/
+}
+
+.badge {
+
+  position: absolute;
+  top: 25px;
+  right: 150px;
+}
+/* to do lists render */
