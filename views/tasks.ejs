@@ -59,50 +59,46 @@
 </div>
   <section ng-controller="TasksController">
 
-
+    <!--
+     =====================================================================================
+     *************************************  FORM   ***************************************
+     =====================================================================================
+     -->
       <div ng-controller="AccordionDemoCtrl" class="container">
-
       <uib-accordion close-others="oneAtATime">
           <uib-accordion-group is-open="status.open">
             <uib-accordion-heading>
               <i class="fa fa-plus"></i> New Task <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
             </uib-accordion-heading>
-
-
-      <!--
-       =====================================================================================
-       *************************************  FORM   ***************************************
-       =====================================================================================
-       -->
-        <div class="well">
           <form ng-submit="createTask()" class="form-horizontal">
-            <!-- first name  -->
+            <!-- task title  -->
             <div class="form-group">
-              <label for="task-title" class="col-sm-2 control-label">Title</label>
-              <div class="col-sm-10">
-                <input ng-model="newTask.title" type="text" class="form-control" id="task-title" placeholder="Name the Task">
+              <div class="row">
+                <label for="task-title" class="col-sm-1 control-label">Title</label>
+                <div class="col-sm-10">
+                  <input ng-model="newTask.title" type="text" class="form-control" id="task-title" placeholder="Organize stuff">
+                </div>
               </div>
             </div>
-            <!-- last name  -->
+            <!-- task notes  -->
             <div class="form-group">
-              <label for="task-notes" class="col-sm-2 control-label">Last Name</label>
-              <div class="col-sm-10">
-                <input ng-model="newTask.notes" type="text" class="form-control" id="task-notes" placeholder="Notes">
+              <div class="row">
+                <label for="task-notes" class="col-sm-1 control-label">Notes</label>
+                <div class="col-sm-10">
+                  <input ng-model="newTask.notes" type="text" class="form-control" id="task-notes" placeholder="...don't procrastinate!">
+                </div>
               </div>
             </div>
-
-
-              <div class="col-sm-5">
+            <div class="row">
+              <div class="col-sm-3 col-sm-offset-5">
                 <button type="submit" class="btn btn-lg btn-success" id="submit-btn">Submit</button>
               </div>
-        </form>
-
             </div>
-
-
+        </form>
         </uib-accordion-group>
         </uib-accordion>
         </div>
+        <br>
       <!--
        =====================================================================================
        ********************************** END FORM   ***************************************
@@ -113,19 +109,31 @@
 
           <div class="row">
             <div class="col-md-12">
-              <h2>Taskss!</h2>
+              <h2>My Tasks</h2>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th><span class="badge">{{tasks.length}}</span> Task</th>
+                    <th>Notes</th>
+                    <th class="pull-right">Click to Delte</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="task in tasks | filter: searchBox">
+                    <td>{{task.title}}</td>
+                    <td>{{task.notes}}</td>
+                    <td><button ng-click="deleteTask($index)" class="btn btn-danger btn-sm pull-right" class="btn-delete"><i class="fa fa-trash-o"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-        <div ng-repeat="task in tasks | filter: searchBox" class="well">
+        <!-- <div ng-repeat="task in tasks | filter: searchBox" class="well"> -->
+          <!-- <div class="container"> -->
 
+<!-- </div> -->
           <div class="row">
-            <ul class="todolist">
-  <li class="task">
-    <input type="checkbox" id="task1" />
-    <label for="task1">{{ task.title }} | {{ task.notes }}</label>
-    <button ng-click="deleteTask($index)" class="btn btn-danger" id="btn-delete"><i class="fa fa-trash-o"></i></button>
-  </li>
-</ul>
+
             <!-- <ul>
               <li>
                 <h3><strong>{{ task.title }} </strong></h3>
@@ -141,7 +149,6 @@
           </div>
         </div>
 
-    </div>
 
   </section><!-- end tasks controller -->
 </body>
