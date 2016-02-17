@@ -1,0 +1,173 @@
+
+
+  <!doctype html>
+  <html ng-app="appointmentApp">
+    <head>
+      <title>MEAN Assistant</title>
+        <!--*************************** Styles ******************************* -->
+        <!-- CSS custom -->
+        <link rel="stylesheet" href="/CSS/styles.css" media="screen" title="no title" charset="utf-8">
+        <!-- CSS CDNs -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+        <link href="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.css" type="text/css" rel="stylesheet">
+
+        <!--**************************** Scripts ***************************** -->
+        <!-- JS CDNs -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js" charset="utf-8"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-animate.js" charset="utf-8"></script>
+        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.2.js"></script>
+
+
+        <!-- JS custom -->
+        <script src="/js/controllers/api/contacts_controller.js" charset="utf-8"></script>
+        <script src="/js/datetimepicker.js"></script>
+        <script src="/js/app.js" charset="utf-8"></script>
+    </head>
+<body>
+
+  <section ng-controller="ContactsController">
+  <div class="page-header text-center" id="user-welcome">
+    <h1><span class="fa fa-user"></span> Welcome  <%= user.local.email %><br> </h1>
+
+    <a href="/logout" class="btn btn-warning btn-sm">Logout</a>
+  </div>
+  <a href="/profile" class="btn btn-default"><span class="fa fa-user"></span> <%= user.local.email %>'s profile</a>
+  <a href="/tasks" class="btn btn-default"><span class="fa fa-check-square"></span> todos</a>
+      <input id="search"type="text" name="contactSearch" value="" ng-model="searchBox" placeholder="search">
+
+      <div ng-controller="AccordionDemoCtrl" class="container">
+
+      <uib-accordion close-others="oneAtATime">
+          <uib-accordion-group is-open="status.open">
+            <uib-accordion-heading>
+              <i class="fa fa-plus"></i> New Contact <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+            </uib-accordion-heading>
+
+
+      <!--
+       =====================================================================================
+       *************************************  FORM   ***************************************
+       =====================================================================================
+       -->
+        <div class="well">
+          <form ng-submit="createContact()" class="form-horizontal">
+            <!-- first name  -->
+            <div class="form-group">
+              <label for="contact-first" class="col-sm-2 control-label">First Name</label>
+              <div class="col-sm-10">
+                <input ng-model="newContact.firstName" type="text" class="form-control" id="contact-first" placeholder="First Name">
+              </div>
+            </div>
+            <!-- last name  -->
+            <div class="form-group">
+              <label for="contact-last" class="col-sm-2 control-label">Last Name</label>
+              <div class="col-sm-10">
+                <input ng-model="newContact.lastName" type="text" class="form-control" id="contact-last" placeholder="Last Name">
+              </div>
+            </div>
+            <!-- phone  -->
+            <div class="form-group">
+              <label for="contact-phone" class="col-sm-2 control-label">Phone</label>
+              <div class="col-sm-10">
+                <input ng-model="newContact.phone" type="text" class="form-control" id="contact-phone" placeholder="(212)-322-5698">
+              </div>
+            </div>
+            <!-- email  -->
+            <div class="form-group">
+              <label for="contact-email" class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-10">
+                <input ng-model="newContact.email" type="text" class="form-control" id="contact-email" placeholder="you@me.com">
+              </div>
+            </div>
+            <!-- street-->
+            <div class="form-group">
+              <label for="contact-street" class="col-sm-2 control-label">Street</label>
+              <div class="col-sm-10">
+                <input ng-model="newContact.street" type="text" class="form-control" id="contact-street" placeholder="123 1st Avenue">
+              </div>
+            </div>
+            <!-- city-->
+            <div class="form-group">
+              <label for="contact-city" class="col-sm-2 control-label">City</label>
+              <div class="col-sm-10">
+                <input ng-model="newContact.city" type="text" class="form-control" id="contact-city" placeholder="New York">
+              </div>
+            </div>
+            <!-- zip-->
+            <div class="form-group">
+              <label for="contact-zip" class="col-sm-2 control-label">Zip</label>
+              <div class="col-sm-10">
+                <input ng-model="newContact.zip" type="text" class="form-control" id="contact-zip" placeholder="01010">
+              </div>
+            </div>
+            <!-- state-->
+            <div class="form-group">
+              <label for="contact-state" class="col-sm-2 control-label">State</label>
+              <div class="col-sm-10">
+                <input ng-model="newContact.state" type="text" class="form-control" id="contact-state" placeholder="New York">
+              </div>
+            </div>
+
+            <!-- url -->
+            <div class="form-group">
+              <label for="contact-url" class="col-sm-2 control-label">Image URL</label>
+              <div class="col-sm-10">
+                <input ng-model="newContact.url" type="text" class="form-control" id="contact-url" placeholder="http://www....">
+              </div>
+            </div>
+
+
+              <div class="col-sm-5">
+                <button type="submit" class="btn btn-lg btn-success" id="submit-btn">Submit</button>
+              </div>
+        </form>
+
+            </div>
+
+
+        </uib-accordion-group>
+        </uib-accordion>
+        </div>
+      <!--
+       =====================================================================================
+       ********************************** END FORM   ***************************************
+       =====================================================================================
+       -->
+
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Contacts!</h2>
+            </div>
+          </div>
+        <div ng-repeat="contact in contacts | filter: searchBox" class="well">
+
+          <div class="row">
+
+            <ul>
+              <li>
+                <h3><strong>{{ contact.firstName }} {{ contact.lastName}}</strong></h3>
+                <h5> {{ contact.phone }}  | {{ contact.email }}</h5>
+                <p>
+                  {{ contact.street }} {{ contact.city }}, {{ contact.state }} {{ contact.zip }}
+                </p>
+                <img ng-src="{{ contact.url }}" alt="" />
+                <button ng-click="deleteContact($index)" class="btn btn-danger" id="btn-delete"><i class="fa fa-trash-o"></i></button>
+
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+    </div>
+
+    </section><!-- end contacts controller -->
+</body>
+
+    </html>
